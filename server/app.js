@@ -115,6 +115,125 @@ app.get("/products", async (req, res) => {
   res.send(products)
 })
 
+//user schema
+
+const Users = mongoose.model("Users", {
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
+  cartData: {
+    type: Object,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+})
+
+//create user
+app.post("/signup", async (req, res) => {
+  let check = await Users.findOne({ email: req.body.email })
+  if (check) {
+    return res
+      .status(401)
+      .json({ success: false, error: "email already in use" })
+  }
+  let cart = {}
+  for (let i = 0; i < 300; i++) {
+    cart[i] = 0
+  }
+  const user = new Users({
+    name: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+    cartData: cart,
+  })
+  await user.save()
+
+  const data = {
+    user: {
+      id: user.id,
+    },
+  }
+
+  const token = jwt.sign(data, "secret")
+  res.json({ success: true, token })
+})
+
+app.post("/login", async (req, res) => {
+  let user = await Users.findOne({ email: req.body.email })
+  if (user) {
+    const conf_pass = req.body.password === user.password
+    if (conf_pass) {
+      const data = {
+        user: {
+          id: user.id,
+        },
+      }
+      const token = jwt.sign(data, "secret")
+      res.status(200).json({ success: true, token })
+    } else {
+      res.status(400).json({ success: false, errors: "wrong password" })
+    }
+  } else {
+    res.json({ success: false, errors: "email not found" })
+  }
+})
+
+//new items
+
+app.get("/newcollections", async (req, res) => {
+  let products = await Product.find({})
+  //get the most recent 8 products
+  let new_items = products.slice(1).slice(-8)
+  console.log("new items fetched")
+  res.status(200).send(new_items)
+})
+
+app.get("/popularinwomen", async (req, res) => {
+  let products = await Product.find({ category: "women" })
+  let popular_woman = products.slice(0, 4)
+  console.log("popular fetched")
+  res.status(200).send(popular_woman)
+})
+
+//add to cart
+
+// middleware to get the user
+const fetchUser = async (req, res, next) => {
+  const token = req.header("auth-token")
+  if (!token) {
+    return res
+      .status(401)
+      .send({ errors: "Please login to validate : token not valid" })
+  } else {
+    try {
+      const data = jwt.verify(token, "secret")
+      req.user = data.user
+      next()
+    } catch (error) {
+      res.status(401).send({ errors: "token not valid" })
+    }
+  }
+}
+
+app.post("/addtocart", fetchUser, async (req, res) => {
+  let userData = await Users.findOne({ _id: req.user.id })
+  userData.cartData[req.body.itemId] += 1
+  await Users.findOneAndUpdate(
+    { _id: req.user.id },
+    { cartData: userData.cartData }
+  )
+  res.send("item added to cart")
+})
+
 // server api
 app.listen(PORT, (e) => {
   if (!e) {
