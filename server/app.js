@@ -77,7 +77,7 @@ const Product = mongoose.model("Product ", {
   },
 })
 
-app.post("/products-add", async (req, res) => {
+app.post("/addproduct", async (req, res) => {
   let products = await Product.find({})
   let id
   if (products.length > 0) {
@@ -103,13 +103,13 @@ app.post("/products-add", async (req, res) => {
   res.status(200).json({ success: true, name: name })
 })
 
-app.post("/products-delete", async (req, res) => {
+app.post("/removeproduct", async (req, res) => {
   await Product.findOneAndDelete({ id: req.body.id })
   console.log("product deleted")
   res.status(200).json({ success: true, name: req.body.name })
 })
 
-app.get("/products", async (req, res) => {
+app.get("/allproducts", async (req, res) => {
   let products = await Product.find({})
   console.log("fetched")
   res.send(products)
@@ -250,6 +250,14 @@ app.post("/removefromcart", fetchUser, async (req, res) => {
     { cartData: userData.cartData }
   )
   res.send("item removed from cart")
+})
+
+//get cart data
+
+app.post("/getcart", fetchUser, async (req, res) => {
+  console.log("get cart items")
+  let userData = await Users.findOne({ _id: req.user.id })
+  res.status(200).json(userData.cartData)
 })
 
 // server api
