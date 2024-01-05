@@ -225,6 +225,8 @@ const fetchUser = async (req, res, next) => {
 }
 
 app.post("/addtocart", fetchUser, async (req, res) => {
+  console.log("added", req.body.itemId)
+
   let userData = await Users.findOne({ _id: req.user.id })
   userData.cartData[req.body.itemId] += 1
   await Users.findOneAndUpdate(
@@ -232,6 +234,22 @@ app.post("/addtocart", fetchUser, async (req, res) => {
     { cartData: userData.cartData }
   )
   res.send("item added to cart")
+})
+
+//remove cart data
+app.post("/removefromcart", fetchUser, async (req, res) => {
+  let userData = await Users.findOne({ _id: req.user.id })
+  console.log("removed", req.body.itemId)
+
+  if (userData.cartData[req.body.itemId] > 0) {
+    userData.cartData[req.body.itemId] -= 1
+  }
+
+  await Users.findOneAndUpdate(
+    { _id: req.user.id },
+    { cartData: userData.cartData }
+  )
+  res.send("item removed from cart")
 })
 
 // server api
