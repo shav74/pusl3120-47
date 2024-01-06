@@ -10,7 +10,8 @@ const AddProduct = () => {
         image: "",
         category: "3dmodels",
         new_price: "",
-        old_price: ""
+        old_price: "",
+        description: ""
     })
 
     const imageHandler = (e) => {
@@ -54,22 +55,26 @@ const AddProduct = () => {
     return (
         <div className='add-product'>
             <div className="addproduct-itemfield">
+                <p>Product Title</p>
+                <input value={productDetails.name} onChange={changeHandler} type="text" name="name" placeholder="Title" />
+            </div>
+            <div className="addproduct-itemfield">
+                <p>Product Description</p>
+                <textarea value={productDetails.description} onChange={changeHandler} name="description" placeholder="Write Description"></textarea>
+            </div>
+            <div className="addproduct-itemfield">
                 <p>Add Image</p>
                 <label htmlFor="file-input">
                     <img className='addproduct-thumbnail-img' src={image ? URL.createObjectURL(image) : upload_area} alt="" />
                 </label>
                 <input onChange={imageHandler} type="file" name="image" id="file-input" hidden />
             </div>
-            <div className="addproduct-itemfield">
-                <p>Product Title</p>
-                <input value={productDetails.name} onChange={changeHandler} type="text" name="name" placeholder="Title" />
-            </div>
             <div className="addproduct-price">
                 <div className="addproduct-itemfield">
                     <p>Price</p>
                     <input value={productDetails.old_price} onChange={changeHandler} type="text" name='old_price' placeholder='Price' />
                     <p>Discounted Price</p>
-                    <input value={productDetails.new_price} onChange={changeHandler} type="text" name='new_price' placeholder='Dscounted Price' />
+                    <input value={productDetails.new_price} onChange={changeHandler} type="text" name='new_price' placeholder='Discounted Price' />
                 </div>
             </div>
             <div className="addproduct-itemfield">

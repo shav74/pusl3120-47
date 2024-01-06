@@ -21,11 +21,8 @@
 
 .nav-menu {
     display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 50px;
+    gap: 30px;
     font-size: 18px;
-    font-weight: 500;
 }
 
 .nav-menu li {
@@ -33,16 +30,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
     cursor: pointer;
-}
-
-.nav-menu hr {
-    border: none;
-    width: 80%;
-    height: 3px;
-    border-radius: 10px;
-    background: rgb(219, 27, 27);
 }
 
 .nav-login-cart {
