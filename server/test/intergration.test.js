@@ -25,6 +25,7 @@ describe("intergration test on database", () => {
       category: "Test Category",
       new_price: 20,
       old_price: 15,
+      description: "testing desc",
     }
 
     const res = await chai.request(app).post("/addproduct").send(productData)
