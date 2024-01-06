@@ -1,7 +1,8 @@
 .navbar {
     display: flex;
-    justify-content: space-around;
-    padding: 16px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 60px;
     box-shadow: 0 1px 3px -2px black;
     background: rgb(117, 161, 255);
     height: 5rem;
@@ -10,7 +11,6 @@
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
 .nav-logo img {

@@ -1,22 +1,24 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
-    gap: 20px;
+    padding-top: 1px;
+    gap: 1px;
     width: 100%;
     max-width: 250px;
-    height: 100vh;
-    background: white;
+    height: 130vh;
+    background: rgb(0, 137, 183);
 }
 
 .sidebar-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 0px 20px;
-    padding: 5px 10px;
-    border-radius: 6px;
     background: #f6f6f6;
-    gap: 20px;
     cursor: pointer;
+    font-weight: 700;
+    color: black;
+    margin-right: 0.5px;
+}
+
+.sidebar-item p{
+    margin-left: 15px;
 }

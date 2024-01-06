@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './ListProduct.css'
-import cross_icon from '../../assets/cross_icon.png'
+import cross_icon from '../../assets/dlt-ico.png'
 
 const ListProduct = () => {
 
@@ -28,7 +28,6 @@ const ListProduct = () => {
 
     return (
         <div className='list-product'>
-            <h1>All Products List</h1>
             <div className="listproduct-format-main">
                 <p>Products</p>
                 <p>Title</p>

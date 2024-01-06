@@ -1,5 +1,5 @@
 .hero {
-    height: 100vh;
+    height: 90vh;
     background: linear-gradient(to right, #17a7ed, #772ba3, #cf15ad);
     display: flex;
 }
@@ -10,31 +10,24 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    padding-left: 180px;
+    padding-left: 140px;
     line-height: 1.1;
-    margin-top: -20px;
 }
 
 .hero-left h2 {
     color: rgb(241, 255, 48);
-    font-size: 23px;
+    font-size: 28px;
     font-weight: 600;
 }
 
+.hero-left h1{
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
 .hero-left p {
     color: rgb(255, 255, 255);
     font-size: 60px;
     font-weight: 700;
-}
-
-.hero-hand-icon {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.hero-hand-icon img {
-    width: 70px;
 }
 
 .hero-latest-btn {
@@ -42,14 +35,16 @@
     justify-content: center;
     align-items: center;
     gap: 15px;
-    width: 270px;
-    height: 65px;
+    width: 210px;
+    height: 64px;
     border-radius: 55px;
-    margin-top: 30px;
-    background: rgb(207, 0, 0);
-    color: white;
+    border: none;
+    margin-top: 20px;
+    background: rgb(251, 255, 34);
+    color: rgb(53, 53, 53);
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .hero-right {
