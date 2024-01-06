@@ -197,11 +197,11 @@ app.get("/newcollections", async (req, res) => {
   res.status(200).send(new_items)
 })
 
-app.get("/popularinwomen", async (req, res) => {
-  let products = await Product.find({ category: "women" })
-  let popular_woman = products.slice(0, 4)
-  console.log("popular fetched")
-  res.status(200).send(popular_woman)
+app.get("/bestselling", async (req, res) => {
+  let products = await Product.find({ category: "3dprinters" })
+  let best_printers = products.slice(0, 4)
+  console.log("popular printers fetched")
+  res.status(200).send(best_printers)
 })
 
 //add to cart
@@ -268,3 +268,5 @@ app.listen(PORT, (e) => {
     console.log(e)
   }
 })
+
+module.exports = app
