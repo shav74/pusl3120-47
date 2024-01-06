@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
+import info_icon from '../components/Assets/info-icon.png'
 
 const LoginSignup = () => {
 
@@ -63,9 +64,9 @@ const LoginSignup = () => {
           <input name='email' value={formData.email} onChange={changeHandler} type="email" placeholder='Email Adress' />
           <input name='password' value={formData.password} onChange={changeHandler} type="password" placeholder='Password' />
         </div>
-        <div className="loginsignup-agree">
-          <input className='checkbox' type="checkbox" name='' id='' />
-          <p>By continuing, I agree to the terms of use & privacy policy</p>
+        <div className="loginsignup-info">
+          <img className='info' src={info_icon} />
+          <p>You can save items on cart using an account for future purchases.</p>
         </div>
         <button onClick={() => { state === "Login" ? login() : signup() }}>Continue</button>
         {state === "Sign Up" ?
@@ -75,6 +76,7 @@ const LoginSignup = () => {
             Don't have an account? <span onClick={() => { setState("Sign Up") }}>Register Here</span>
           </p>
         }
+        <br /><br />
       </div>
     </div>
   )
