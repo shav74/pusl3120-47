@@ -1,30 +1,31 @@
 import React, { useContext, useState } from "react";
 import "./Navbar.css";
-import logo from "../Assets/logo.png";
-import cart_icon from "../Assets/cart_icon.png";
+import logo from "../Assets/axis-logo.png";
+import cart_icon from "../Assets/cart-logo.png";
+import person_icon from "../Assets/person-icon.png";
+import person_cut_icon from "../Assets/person-cut-icon.png";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("shop");
+  const [menu, setMenu] = useState("home");
   const { getTotalCartItems } = useContext(ShopContext);
 
   return (
     <div className='navbar'>
       <div className="nav-logo">
-        <img src={logo} alt="" />
-        <p>Jas3D</p>
+        <Link to="/"><img src={logo} alt="" /></Link>
       </div>
       <ul className="nav-menu">
-        <li onClick={() => { setMenu("shop") }}><Link style={{ textDecoration: 'none' }} to="/">Shop</Link>{menu === "shop" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMenu("men") }}><Link style={{ textDecoration: 'none' }} to="/mens">Men</Link>{menu === "men" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMenu("women") }}><Link style={{ textDecoration: 'none' }} to="/womens">Women</Link>{menu === "women" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMenu("kid") }}><Link style={{ textDecoration: 'none' }} to="/kids">Kid</Link>{menu === "kid" ? <hr /> : <></>}</li>
+        <li onClick={() => { setMenu("home") }}><Link style={{ textDecoration: 'none', color: menu === "home" ? 'white' : "black" }} to="/">HOME</Link></li>
+        <li onClick={() => { setMenu("3dmodels") }}><Link style={{ textDecoration: 'none', color: menu === "3dmodels" ? 'white' : "black" }} to="/3dmodels">3D MODELS</Link></li>
+        <li onClick={() => { setMenu("3dprinters") }}><Link style={{ textDecoration: 'none', color: menu === "3dprinters" ? 'white' : "black" }} to="/3dprinters">3D PRINTERS</Link></li>
+        <li onClick={() => { setMenu("printerparts") }}><Link style={{ textDecoration: 'none', color: menu === "printerparts" ? 'white' : "black" }} to="/printerparts">PRINTER PARTS</Link></li>
       </ul>
       <div className="nav-login-cart">
         {localStorage.getItem('auth-token')
-          ? <button onClick={() => { localStorage.removeItem('auth-token'); window.location.replace('/') }}>Logout</button>
-          : <Link to="/login"><button>Login</button></Link>}
+          ? <img src={person_cut_icon} onClick={() => { localStorage.removeItem('auth-token'); window.location.replace('/') }}></img>
+          : <Link to="/login"><img src={person_icon} alt="" /></Link>}
         <Link to="/cart"><img src={cart_icon} alt="" /></Link>
         <div className="nav-cart-count">{getTotalCartItems()}</div>
       </div>
