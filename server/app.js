@@ -75,6 +75,10 @@ const Product = mongoose.model("Product ", {
     type: Boolean,
     default: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
 })
 
 app.post("/addproduct", async (req, res) => {
@@ -87,7 +91,7 @@ app.post("/addproduct", async (req, res) => {
     id = 1
   }
 
-  const { name, image, category, new_price, old_price } = req.body
+  const { name, image, category, new_price, old_price, description } = req.body
   const product = new Product({
     id: id,
     name: name,
@@ -95,6 +99,7 @@ app.post("/addproduct", async (req, res) => {
     category: category,
     new_price: new_price,
     old_price: old_price,
+    description: description,
   })
   console.log(product)
   await product.save()
@@ -189,15 +194,16 @@ app.post("/login", async (req, res) => {
 
 //new items
 
-app.get("/newcollections", async (req, res) => {
+app.get("/newproducts", async (req, res) => {
   let products = await Product.find({})
   //get the most recent 8 products
-  let new_items = products.slice(1).slice(-8)
+  let new_products = products.slice(1).slice(-8)
   console.log("new items fetched")
-  res.status(200).send(new_items)
+  res.status(200).send(new_products)
 })
 
 app.get("/bestselling", async (req, res) => {
+  // getting the most recent listed printes
   let products = await Product.find({ category: "3dprinters" })
   let best_printers = products.slice(0, 4)
   console.log("popular printers fetched")
