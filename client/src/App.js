@@ -8,8 +8,8 @@ import Cart from "./pages/Cart";
 import LoginSignup from "./pages/LoginSignup";
 import Footer from "./components/Footer/Footer";
 import d_model_banner from './components/Assets/drag-banner.png'
-import women_banner from './components/Assets/banner_women.png'
-import kid_banner from './components/Assets/banner_kids.png'
+import printers_banner from './components/Assets/printers-banner.png'
+import parts_banner from './components/Assets/parts-banner.png'
 import ClientChat from "./pages/ClientChat";
 
 function App() {
@@ -20,9 +20,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Shop />} />
           <Route path="/3dmodels" element={<ShopCategory banner={d_model_banner} category="3dmodels" />} />
-          <Route path="/3dprinters" element={<ShopCategory banner={women_banner} category="3dprinters" />} />
-          <Route path="/printerparts" element={<ShopCategory banner={kid_banner} category="printerparts" />} />
-          <Route path="/ClientChat" element={<ClientChat />} />
+          <Route path="/3dprinters" element={<ShopCategory banner={printers_banner} category="3dprinters" />} />
+          <Route path="/printerparts" element={<ShopCategory banner={parts_banner} category="printerparts" />} />
+          <Route path="/clientchat" element={<ClientChat />} />
 
           <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<Product />} />

@@ -2,6 +2,11 @@
     width: 350px;
 }
 
+.item-img{
+    width: 350px; 
+    height: auto;
+}
+
 .item p{
     margin: 6px 0px;
     font-weight: 600;
