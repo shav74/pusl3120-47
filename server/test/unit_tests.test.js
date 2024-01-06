@@ -1,6 +1,6 @@
 const chai = require("chai")
 const chaiHttp = require("chai-http")
-const app = require("../app")
+const { app } = require("../app")
 const jwt = require("jsonwebtoken")
 
 chai.use(chaiHttp)
@@ -28,12 +28,13 @@ describe("testing product routes", () => {
         category: "test Category",
         new_price: 47,
         old_price: 74,
+        description: "test desc",
       })
       .end((err, res) => {
         res.should.have.status(200)
         res.body.should.be.a("object")
         res.body.should.have.property("success").eql(true)
-        res.body.should.have.property("name").eql("test troduct")
+        res.body.should.have.property("name").eql("test product")
         done()
       })
   })
@@ -66,12 +67,12 @@ describe("testing product routes", () => {
 })
 
 describe("testing user management routes", () => {
-  it("should sign up a new user on /signup POST", (done) => {
+  it("creating a new user", (done) => {
     chai
       .request(app)
       .post("/signup")
       .send({
-        username: "testuser",
+        username: "dummy user",
         email: "test@gmail.com",
         password: "testpass",
       })
@@ -83,7 +84,7 @@ describe("testing user management routes", () => {
       })
   })
 
-  it("should log in an existing user on /login POST", (done) => {
+  it("log in as created user", (done) => {
     chai
       .request(app)
       .post("/login")
@@ -99,16 +100,16 @@ describe("testing user management routes", () => {
       })
   })
 
-  it("should fail login with wrong credentials on /login POST", (done) => {
+  it("login have to fail with wrong credentials", (done) => {
     chai
       .request(app)
       .post("/login")
       .send({
-        email: "test@example.com",
+        email: "test@gmail.com",
         password: "wrongpassword",
       })
       .end((err, res) => {
-        res.should.have.status(400) // Assuming 400 is the status code for failed login
+        res.should.have.status(400)
         res.body.should.have.property("success").eql(false)
         res.body.should.have.property("errors").eql("wrong password")
         done()
