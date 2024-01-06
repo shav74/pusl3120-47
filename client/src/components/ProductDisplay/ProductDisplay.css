@@ -1,40 +1,36 @@
 .productdisplay {
     display: flex;
-    margin: 0px 110px;
+    padding-top: 50px;
 }
 
 .productdisplay-left {
-    display: flex;
-    gap: 17px;
+    margin: 0px 60px;
 }
 
 .productdisplay-img-list {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: row;
+    gap: 8px;
 }
 
 .productdisplay-img-list img {
-    height: 122.5px;
-    width: 110px;
+    height: 131.5px;
 }
 
 .productdisplay-main-img {
-    width: 465px;
-    height: 541px;
-    margin-bottom: 100px;
+    height: 550px;
 }
 
 .productdisplay-right {
-    margin: 0px 60px;
+    margin: 0px 0px 0px 60px;
     display: flex;
     flex-direction: column;
 }
 
 .productdisplay-right h1 {
-    color: #3d3d3d;
-    font-size: 30px;
-    font-weight: 700;
+    color: #000000;
+    font-size: 35px;
+    font-weight: 600;
 }
 
 .productdisplay-right-star {
@@ -42,7 +38,7 @@
     align-items: center;
     margin-top: 10px;
     gap: 5px;
-    color: #1c1c1c;
+    color: #000000;
     font-size: 16px;
 }
 
@@ -55,56 +51,31 @@
 }
 
 .productdisplay-right-price-old {
-    color: #181818;
+    color: #000000;
     text-decoration: line-through;
 }
 
 .productdisplay-right-price-new {
-    color: #ff1414;
-}
-
-.productdisplay-right-size h1 {
-    margin-top: 20px;
-    color: #656565;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.productdisplay-right-sizes {
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    gap: 10px;
-}
-
-.productdisplay-right-sizes div {
-    padding: 5px 0px 5px 0px;
-    background: #fbfbfb;
-    border: 1px solid #ebebeb;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 38px;
-    text-align: center;
+    color: #ff0000;
 }
 
 .productdisplay-right button {
     padding: 15px 20px;
-    width: 150px;
+    width: 100%;
     font-size: 14px;
     font-weight: 600;
     color: white;
-    background: #ff4141;
+    background: #000000;
     border: none;
     outline: none;
     cursor: pointer;
-    border-radius: 3px;
     margin-bottom: 15px;
+    margin-top: 30px;
 }
-
 
 .productdisplay-right-category{
     margin-top: 5px;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .productdisplay-right-category span{

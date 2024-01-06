@@ -10,57 +10,45 @@ const ProductDisplay = (props) => {
 
     return (
         <div className='productdisplay'>
-            <div className="productdisplay-left">
-                <div className="productdisplay-img-list">
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
-                    <img src={product.image} alt="" />
-                </div>
-                <div className="productdisplay-img">
-                    <img className='productdisplay-main-img' src={product.image} alt="" />
-                </div>
-            </div>
             <div className="productdisplay-right">
                 <h1>{product.name}</h1>
+                <p className='productdisplay-right-category'>
+                    <span>Category: </span>
+                    {product.category}
+                </p>
                 <div className="productdisplay-right-star">
-                    <img src={star_icon} alt="" />
-                    <img src={star_icon} alt="" />
-                    <img src={star_icon} alt="" />
-                    <img src={star_icon} alt="" />
-                    <img src={star_dull_icon} alt="" />
+                    <img src={star_icon} />
+                    <img src={star_icon} />
+                    <img src={star_icon} />
+                    <img src={star_icon} />
+                    <img src={star_dull_icon} />
                     <p>(155)</p>
                 </div>
                 <div className="productdisplay-right-prices">
                     <div className="productdisplay-right-price-old">
-                        ${product.old_price}
+                        Was: {product.old_price} LKR
                     </div>
                     <div className="productdisplay-right-price-new">
-                        ${product.new_price}
+                    Now: {product.new_price} LKR
                     </div>
                 </div>
                 <div className="productdisplay-right-description">
-                    The Beretta 92fs is a variant of the Beretta 92 series, and its predecessor, the Beretta 92FS was adopted as the standard sidearm for the United States military in 1985. This widespread military adoption greatly contributed to its fame, as it became the standard-issue sidearm for U.S. armed forces for many years.
+                    {product.description}
                 </div>
-                <div className="productdisplay-right-size">
-                    <h1>Select Size</h1>
-                    <div className="productdisplay-right-sizes">
-                        <div>XS</div>
-                        <div>S</div>
-                        <div>M</div>
-                        <div>L</div>
-                        <div>XL</div>
+
+                <button onClick={() => { addToCart(product.id) }}>ADD TO CART</button>
+            </div>
+
+            <div className="productdisplay-left">
+                <div className="productdisplay-img">
+                    <img className='productdisplay-main-img' src={product.image} alt="" />
+                    <div className="productdisplay-img-list">
+                        <img src={product.image} alt="" />
+                        <img src={product.image} alt="" />
+                        <img src={product.image} alt="" />
+                        <img src={product.image} alt="" />
                     </div>
                 </div>
-                <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
-                <p className='productdisplay-right-category'>
-                    <span>Category :</span>
-                    Women, T-Shirt, Crop Top
-                </p>
-                <p className='productdisplay-right-category'>
-                    <span>Tags :</span>
-                    Modern, Latest
-                </p>
             </div>
         </div>
     )

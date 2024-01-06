@@ -22,3 +22,8 @@
     gap: 10px;
     row-gap: 50px;
 }
+
+.collections img {
+    max-width: 100%;
+    max-height: 100%;
+}

@@ -3,26 +3,26 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    height: 95vh;
+    height: 80vh;
+    background: rgb(51, 99, 153);
+    padding-top: 30px;
 }
 
 .relatedproducts h1 {
-    color: #1093ff;
+    color: #ffffff;
     font-size: 40px;
     font-weight: 600;
 }
 
-.relatedproducts hr {
-    width: 200px;
-    height: 3px;
-    border-radius: 10px;
-    background: #229cff;
-    outline: none;
-    border: none;
+.relatedproducts-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 50px;
+    gap: 10px;
+    row-gap: 50px;
 }
 
-.relatedproducts-item {
-    margin-top: 50px;
-    display: flex;
-    gap: 10px;
+.relatedproducts-item img {
+    max-width: 100%;
+    max-height: 100%;
 }
