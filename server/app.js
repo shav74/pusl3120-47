@@ -11,10 +11,12 @@ app.use(express.json())
 //connect with react
 app.use(cors())
 
-// connect to mongoDB
-mongoose.connect(
+const dbConnectionString =
+  process.env.DB_CONNECTION_STRING ||
   "mongodb+srv://shavinda:shavinda@cluster0.chyp2hq.mongodb.net/pusl3120-74"
-)
+
+// connect to mongoDB
+mongoose.connect(dbConnectionString)
 
 app.get("/", (req, res) => {
   res.send("hello there")
@@ -275,4 +277,4 @@ app.listen(PORT, (e) => {
   }
 })
 
-module.exports = app
+module.exports = { app, Product }
