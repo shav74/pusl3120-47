@@ -1,11 +1,16 @@
+//states
+const path = require("path")
+const { Server } = require("socket.io")
+
 const express = require("express")
-const app = express()
 const mongoose = require("mongoose")
 const jwt = require("jsonwebtoken")
 const multer = require("multer")
-const path = require("path")
 const cors = require("cors")
+
+const app = express()
 const PORT = 4000
+
 //to parse response body to json
 app.use(express.json())
 //connect with react
@@ -269,12 +274,30 @@ app.post("/getcart", fetchUser, async (req, res) => {
 })
 
 // server api
-app.listen(PORT, (e) => {
+const expressServer = app.listen(PORT, (e) => {
   if (!e) {
     console.log("surver running on port 4000")
   } else {
     console.log(e)
   }
+})
+
+const io = new Server(expressServer, {
+  cors: {
+    //connect to react frontend
+    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+  },
+})
+
+io.on("connection", (socket) => {
+  console.log(`User ${socket.id} connected`)
+
+  socket.on("message", (data) => {
+    console.log(data)
+
+    // send the message to all clients except the sender
+    socket.broadcast.emit("message", `${socket.id.substring(0, 5)}: ${data}`)
+  })
 })
 
 module.exports = { app, Product }
