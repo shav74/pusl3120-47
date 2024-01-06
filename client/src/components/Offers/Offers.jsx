@@ -1,6 +1,8 @@
 import React from 'react'
 import './Offers.css'
 import exclusive_image from '../Assets/3dmodels.png'
+import { Link } from "react-router-dom";
+
 const Offers = () => {
   return (
     <div className='offers'>
@@ -11,7 +13,9 @@ const Offers = () => {
         <h1>Checkout</h1>
         <h1>Pre-made Models</h1>
         <p>WE PRINT . WE DELIVER</p>
-        <button>View Models</button>
+        <Link style={{ textDecoration: 'none', color: 'white' }} to='/3dprinters'>
+          <button>View Models</button>
+        </Link>
       </div>
     </div>
   )

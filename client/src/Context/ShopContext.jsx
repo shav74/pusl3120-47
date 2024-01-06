@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from "react";
-// import all_product from "../components/Assets/all_product";
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {

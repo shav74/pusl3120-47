@@ -4,15 +4,17 @@
 
 .item p{
     margin: 6px 0px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
 }
 
 .item-prices{
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
-.item-price-new{
-    color: #374151;
+.item-price-old{
+    color: #ff0000;
     font-size: 18px;
     font-weight: 600;
 }
