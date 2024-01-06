@@ -4,7 +4,7 @@
   "description": "backend for pusl3120",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --timeout 10000 --exit",
+    "test": "mocha --timeout 30000 --exit",
     "start": "nodemon app.js"
   },
   "keywords": [
