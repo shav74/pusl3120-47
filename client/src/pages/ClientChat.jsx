@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import ClientChat from "../components/ClientChat/ClientChat";
 
-const ClientChat = () => {
+const Chat = () => {
   return (
     <div>
-      <h1>fuck you tony</h1>
+      <ClientChat />
     </div>
-  )
-}
+  );
+};
 
-export default ClientChat
+export default Chat;
