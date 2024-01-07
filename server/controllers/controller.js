@@ -143,6 +143,8 @@ const getcart = async (req, res) => {
   res.status(200).json(userData.cartData)
 }
 
+const addorder = async (req, res) => {}
+
 module.exports = {
   sayhello,
   addproduct,
