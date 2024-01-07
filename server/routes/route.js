@@ -67,9 +67,7 @@ router.post("/addorder", fetchUser, async (req, res) => {
     req.body
 
   //   remove the item from the cart
-  if (userData.cartData[req.body.itemId] > 0) {
-    userData.cartData[req.body.itemId] = 0
-  }
+  userData.cartData[req.body.itemId] -= quantity
 
   await Users.findOneAndUpdate(
     { _id: req.user.id },

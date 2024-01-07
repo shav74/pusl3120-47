@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./CSS/Checkout.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -13,12 +13,12 @@ const Checkout = () => {
     }
   }
 
-  const firstname = useRef(null);
-  const lastname = useRef(null);
-  const address = useRef(null);
-  const address2 = useRef(null);
-  const postcode = useRef(null);
-  const province = useRef(null);
+  const [firstname, setfirstname] = useState("");
+  const [lastname, setlastname] = useState("");
+  const [address, setaddress] = useState("");
+  const [address2, setaddress2] = useState("");
+  const [postcode, setpostcode] = useState("");
+  const [province, setprovince] = useState("");
 
   return (
     <div className="checkout">
@@ -31,7 +31,7 @@ const Checkout = () => {
               type="text"
               name="firstname"
               placeholder="ex: Senarath"
-              ref={firstname}
+              onChange={(event) => setfirstname(event.target.value)}
             />
           </div>
           <div className="checkout-field">
@@ -40,7 +40,7 @@ const Checkout = () => {
               type="text"
               name="lastname"
               placeholder="ex: Dunusinghe"
-              ref={lastname}
+              onChange={(event) => setlastname(event.target.value)}
             />
           </div>
           <div className="checkout-field">
@@ -49,7 +49,7 @@ const Checkout = () => {
               type="text"
               name="address"
               placeholder="ex: 170/E Wariyapola"
-              ref={address}
+              onChange={(event) => setaddress(event.target.value)}
             />
           </div>
           <div className="checkout-field">
@@ -57,7 +57,7 @@ const Checkout = () => {
             <input
               type="text"
               name="address2"
-              ref={address2}
+              onChange={(event) => setaddress2(event.target.value)}
               placeholder="ex: 178/C Warakapola"
             />
           </div>
@@ -66,7 +66,7 @@ const Checkout = () => {
             <input
               type="text"
               name="postcode"
-              ref={postcode}
+              onChange={(event) => setpostcode(event.target.value)}
               placeholder="ex: 20000"
             />
           </div>
@@ -75,7 +75,7 @@ const Checkout = () => {
             <input
               type="text"
               name="province"
-              ref={province}
+              onChange={(event) => setprovince(event.target.value)}
               placeholder="ex: Central"
             />
           </div>
@@ -94,12 +94,12 @@ const Checkout = () => {
                 for (let i = 0; i < item_id.length; i++) {
                   addItems(
                     item_id[i],
-                    "firstname",
-                    "lastname",
-                    "address",
-                    "address2",
-                    "postcode",
-                    "province"
+                    firstname,
+                    lastname,
+                    address,
+                    address2,
+                    postcode,
+                    province
                   );
                 }
               }}
