@@ -8,7 +8,7 @@ const RelatedProducts = () => {
     useEffect(()=>{
         fetch('http://localhost:4000/newproducts')
         .then((response)=>response.json())
-        .then((data)=>setNew_Collection(data));
+        .then((data)=>setNew_Collection(data.slice(0, 4)));
     },[])
 
     return (
