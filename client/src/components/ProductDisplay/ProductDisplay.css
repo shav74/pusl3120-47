@@ -7,16 +7,6 @@
     margin: 0px 60px;
 }
 
-.productdisplay-img-list {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-}
-
-.productdisplay-img-list img {
-    height: 131.5px;
-}
-
 .productdisplay-main-img {
     height: 550px;
 }
