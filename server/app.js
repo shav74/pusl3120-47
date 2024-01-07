@@ -2,6 +2,10 @@
 const path = require("path")
 const { Server } = require("socket.io")
 
+//models
+const User = require("./models/User")
+const Product = require("./models/Product")
+
 const express = require("express")
 const mongoose = require("mongoose")
 const jwt = require("jsonwebtoken")
@@ -48,46 +52,6 @@ app.post("/upload", upload.single("product"), (req, res) => {
   })
 })
 
-// create a product schema
-const Product = mongoose.model("Product ", {
-  id: {
-    type: Number,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  image: {
-    type: String,
-    required: true,
-  },
-  category: {
-    type: String,
-    required: true,
-  },
-  new_price: {
-    type: Number,
-    required: true,
-  },
-  old_price: {
-    type: Number,
-    required: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  available: {
-    type: Boolean,
-    default: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-})
-
 app.post("/addproduct", async (req, res) => {
   let products = await Product.find({})
   let id
@@ -125,28 +89,6 @@ app.get("/allproducts", async (req, res) => {
   let products = await Product.find({})
   console.log("fetched")
   res.send(products)
-})
-
-//user schema
-
-const Users = mongoose.model("Users", {
-  name: {
-    type: String,
-  },
-  email: {
-    type: String,
-    unique: true,
-  },
-  password: {
-    type: String,
-  },
-  cartData: {
-    type: Object,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
 })
 
 //create user
