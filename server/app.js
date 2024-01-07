@@ -296,7 +296,8 @@ io.on("connection", (socket) => {
     console.log(data)
 
     // send the message to all clients except the sender
-    socket.broadcast.emit("message", `${socket.id.substring(0, 5)}: ${data}`)
+    socket.broadcast.emit("message", `Others : ${data}`)
+    // ${socket.id.substring(0, 5)} id if want
   })
 })
 
