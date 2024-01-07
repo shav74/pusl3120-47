@@ -45,35 +45,40 @@ const ClientChat = () => {
         <div className="divider-section">
           <div className="left-side">
             <div className="instruction-field">
-              <h2>1. Respect Others:</h2>
+              <h2>Ask from others</h2>
               <p>
-                Treat everyone with kindness and respect, refraining from offensive
-                language or personal attacks.
+                You can use this portal to get in touch with others and chat by simply sending a message through the given chat section.
               </p>
             </div>
             <div className="instruction-field">
+              <h2>Please follow the below guidelines:</h2>
+              <br />
+              <h2>1. How To Chat:</h2>
+              <p>
+                Use the chat bar to insert your message and select enter. Once you have sent a message, you will see the new blue area appeared with the message you entered.
+                <br />Once someone reply to your message, you will see a new gray area with their reply.
+              </p>
+              <br />
               <h2>2. Privacy Matters:</h2>
               <p>
                 Safeguard personal information and avoid sharing details without
                 consent.
               </p>
-            </div>
-            <div className="instruction-field">
+              <br />
+              <h2>2. No Discrimination:</h2>
+              <p>
+                Foster an inclusive environment by avoiding discriminatory language
+                or behavior.
+              </p>
+              <br />
               <h2>3. No Discrimination:</h2>
               <p>
                 Foster an inclusive environment by avoiding discriminatory language
                 or behavior.
               </p>
             </div>
-            <div className="instruction-field">
-              <h2>4. Mindful Posting:</h2>
-              <p>
-                Think before posting, avoiding spam, excessive use of capital
-                letters, or disruptive behavior.
-              </p>
-            </div>
-          </div>
 
+          </div>
           <div className="right-side">
             <div className="chat-side">
               <form className="chat-form" onSubmit={sendMessage}>
@@ -98,9 +103,6 @@ const ClientChat = () => {
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div >
   );
