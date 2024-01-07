@@ -12,6 +12,8 @@ import printers_banner from './components/Assets/printers-banner.png'
 import parts_banner from './components/Assets/parts-banner.png'
 import ClientChat from "./pages/ClientChat";
 import Checkout from "./pages/Checkout";
+import Contactus from "./pages/Contactus";
+import Aboutus from "./pages/Aboutus";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/printerparts" element={<ShopCategory banner={parts_banner} category="printerparts" />} />
           <Route path="/clientchat" element={<ClientChat />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/contactus" element={<Contactus />} />
+          <Route path="/aboutus" element={<Aboutus />} />
 
           <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<Product />} />

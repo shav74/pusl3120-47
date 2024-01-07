@@ -19,12 +19,12 @@ const Footer = () => {
 
       <div className='footerlink'>
         <ul className="footer-links">
-          <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><li>3D Printers</li></Link>
-          <Link to='/3dprinters' style={{ textDecoration: 'none', color: 'white' }}><li>3D Models</li></Link>
-          <Link to='/3dmodels' style={{ textDecoration: 'none', color: 'white' }}><li>Printer Parts</li></Link>
-          <Link to='/printerparts' style={{ textDecoration: 'none', color: 'white' }}><li>About US</li></Link>
-          <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><li>Contact US</li></Link>
-          <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><li>Signin</li></Link>
+          <Link to='/3dprinters' style={{ textDecoration: 'none', color: 'white' }}><li>3D Printers</li></Link>
+          <Link to='/3dmodels' style={{ textDecoration: 'none', color: 'white' }}><li>3D Models</li></Link>
+          <Link to='/printerparts' style={{ textDecoration: 'none', color: 'white' }}><li>Printer Parts</li></Link>
+          <Link to='/aboutus' style={{ textDecoration: 'none', color: 'white' }}><li>About US</li></Link>
+          <Link to='/contactus' style={{ textDecoration: 'none', color: 'white' }}><li>Contact US</li></Link>
+          <Link to='/login' style={{ textDecoration: 'none', color: 'white' }}><li>Sign Up</li></Link>
         </ul>
         <div className="footer-social-icon">
           <div className="footer-icons-container">
