@@ -33,7 +33,24 @@ const ShopContextProvider = (props) => {
     }
   }, []);
 
-  const addItems = (itemId) => {
+  const addItems = (
+    itemId,
+    firstname,
+    lastname,
+    address,
+    address2,
+    postcode,
+    province
+  ) => {
+    const requestBody = {
+      itemId: itemId,
+      firstname: firstname,
+      lastname: lastname,
+      address: address,
+      address2: address2,
+      postcode: postcode,
+      province: province,
+    };
     if (localStorage.getItem("auth-token")) {
       fetch("http://localhost:4000/addorder", {
         method: "POST",
@@ -42,7 +59,7 @@ const ShopContextProvider = (props) => {
           "auth-token": `${localStorage.getItem("auth-token")}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ itemId: itemId }),
+        body: JSON.stringify(requestBody),
       })
         .then((response) => response.json())
         .then((data) => console.log(data));

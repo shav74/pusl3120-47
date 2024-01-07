@@ -19,6 +19,24 @@ const OrderSchema = new mongoose.Schema({
     type: String,
     default: "pending",
   },
+  firstname: {
+    type: String,
+  },
+  lastname: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  address2: {
+    type: String,
+  },
+  postcode: {
+    type: String,
+  },
+  province: {
+    type: String,
+  },
 })
 
 const Orders = mongoose.model("Order", OrderSchema)
