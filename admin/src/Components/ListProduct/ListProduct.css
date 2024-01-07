@@ -1,13 +1,13 @@
 .list-product {
     box-sizing: border-box;
-    width: 100%;
-    margin: 10px 0px 0px 25px;
+    width: 300%;
+    margin: 20px 0px 0px 25px;
 }
 
 .listproduct-format-main {
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.7fr 0fr;
-    width: 80%;
+    grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0fr;
+    width: 97%;
     color: #000000;
     font-size: 14px;
 }

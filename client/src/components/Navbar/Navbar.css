@@ -31,14 +31,26 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-weight: 800;
+}
+
+.nav-login-cart li{
+    list-style: none;
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: -9px;
 }
 
 .nav-login-cart {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 25px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.nav-login-cart img{
+    margin-top: -5px;
 }
 
 .nav-cart-count {
@@ -48,7 +60,7 @@
     justify-content: center;
     align-items: center;
     margin-top: -35px;
-    margin-left: -45px;
+    margin-left: -35px;
     border-radius: 11px;
     font-size: 14px;
     background: rgb(255, 255, 255);
