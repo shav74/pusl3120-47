@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./CSS/Checkout.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -13,6 +13,13 @@ const Checkout = () => {
     }
   }
 
+  const firstname = useRef(null);
+  const lastname = useRef(null);
+  const address = useRef(null);
+  const address2 = useRef(null);
+  const postcode = useRef(null);
+  const province = useRef(null);
+
   return (
     <div className="checkout">
       <div className="checkout-container">
@@ -20,35 +27,57 @@ const Checkout = () => {
         <form>
           <div className="checkout-field">
             <p>First Name</p>
-            <input type="text" name="u.name" placeholder="ex: Senarath" />
+            <input
+              type="text"
+              name="firstname"
+              placeholder="ex: Senarath"
+              ref={firstname}
+            />
           </div>
           <div className="checkout-field">
             <p>Last Name</p>
-            <input type="text" name="u.name" placeholder="ex: Dunusinghe" />
+            <input
+              type="text"
+              name="lastname"
+              placeholder="ex: Dunusinghe"
+              ref={lastname}
+            />
           </div>
           <div className="checkout-field">
             <p>Adress Line 1</p>
             <input
               type="text"
-              name="u.name"
+              name="address"
               placeholder="ex: 170/E Wariyapola"
+              ref={address}
             />
           </div>
           <div className="checkout-field">
             <p className="optional-field">Address Line 2 (Optional)</p>
             <input
               type="text"
-              name="u.name"
+              name="address2"
+              ref={address2}
               placeholder="ex: 178/C Warakapola"
             />
           </div>
           <div className="checkout-field">
             <p>Postal Code</p>
-            <input type="text" name="u.name" placeholder="ex: 20000" />
+            <input
+              type="text"
+              name="postcode"
+              ref={postcode}
+              placeholder="ex: 20000"
+            />
           </div>
           <div className="checkout-field">
             <p>Province</p>
-            <input type="text" name="u.name" placeholder="ex: Central" />
+            <input
+              type="text"
+              name="province"
+              ref={province}
+              placeholder="ex: Central"
+            />
           </div>
           <div className="checkout-field">
             <p>Payment Method</p>
@@ -63,7 +92,15 @@ const Checkout = () => {
               value="send"
               onClick={() => {
                 for (let i = 0; i < item_id.length; i++) {
-                  addItems(item_id[i]);
+                  addItems(
+                    item_id[i],
+                    "firstname",
+                    "lastname",
+                    "address",
+                    "address2",
+                    "postcode",
+                    "province"
+                  );
                 }
               }}
             >

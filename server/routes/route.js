@@ -63,6 +63,8 @@ router.post("/addorder", fetchUser, async (req, res) => {
   let userid = req.user.id
   let itemid = req.body.itemId
   let quantity = userData.cartData[itemid]
+  const { firstname, lastname, address, address2, postcode, province } =
+    req.body
 
   //   remove the item from the cart
   if (userData.cartData[req.body.itemId] > 0) {
@@ -78,6 +80,12 @@ router.post("/addorder", fetchUser, async (req, res) => {
     userid: userid,
     itemid: itemid,
     quantity: quantity,
+    firstname: firstname,
+    lastname: lastname,
+    address: address,
+    address2: address2,
+    province: province,
+    postcode: postcode,
   })
   await order.save()
   res.status(200).send({ success: true })
