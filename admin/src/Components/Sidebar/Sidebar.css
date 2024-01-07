@@ -1,10 +1,11 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    padding-top: 1px;
-    gap: 1px;
-    width: 35rem;
+    padding-top: 10px;
+    gap: 10px;
+    width: 100%;
     height: auto;
+    padding-bottom: 10px;
     background: rgb(0, 137, 183);
 }
 

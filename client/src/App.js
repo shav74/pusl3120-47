@@ -14,6 +14,7 @@ import ClientChat from "./pages/ClientChat";
 import Checkout from "./pages/Checkout";
 import Contactus from "./pages/Contactus";
 import Aboutus from "./pages/Aboutus";
+import Myaccount from "./pages/Myaccount";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/contactus" element={<Contactus />} />
           <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/myaccount" element={<Myaccount />} />
 
           <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<Product />} />
