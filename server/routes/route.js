@@ -16,6 +16,7 @@ const {
   getcart,
 } = require("../controllers/controller")
 const { Orders } = require("../models/Orders")
+const { Users } = require("../models/User")
 
 //product management routes
 router.get("/", sayhello)
@@ -85,7 +86,7 @@ router.post("/addorder", fetchUser, async (req, res) => {
 router.post("getorders", async (req, res) => {
   let orders = await Orders.find({})
   console.log("all orders fetched")
-  res.status(200).send(products)
+  res.status(200).send(orders)
 })
 
 module.exports = router
