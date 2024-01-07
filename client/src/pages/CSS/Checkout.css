@@ -75,6 +75,7 @@
     font-weight: 800;
     border-radius: 0px;
     margin-bottom: 80px;
+    margin-left: -1px;
 }
 
 .checkout-field p::after {
