@@ -1,9 +1,61 @@
+.instructions {
+  width: 100%;
+  background: rgb(73, 113, 172);
+}
+
+.instructions-container {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  padding: 50px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+.divider-section {
+  display: flex;
+}
+
+.left-side {
+  width: 45rem;
+  padding-right: 55px;
+  height: auto;
+  background: rgba(0, 0, 0, 0.103);
+}
+
+.instructions-container h1 {
+  background: black;
+  padding: 20px 0px 20px 0px;
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+  margin-top: -50px;
+  width: 100%;
+}
+
+.instruction-field {
+  width: 100%;
+  color: #000000;
+  font-size: 14px;
+  padding: 20px 0px 20px 20px;
+}
+
+.instruction-field p {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(255, 0, 0);
+}
+
+.right-side {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
 .chat-form {
   display: flex;
-  justify-content: center;
   gap: 4px;
-  padding-top: 100px;
+  padding-top: 25px;
   padding-bottom: 30px;
+  padding-left: 30px;
+
 }
 
 .chat-list {
@@ -14,35 +66,32 @@
 }
 
 input {
-  width: 400px;
-}
-button {
-  border-radius: 3px;
-  padding: 10px;
-  background-color: green;
-  border: 1px solid black;
-  width: 100px;
+  width: 85%;
 }
 
-.my-message {
-  background-color: #064650;
+button {
   padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid black;
+  width: 100px;
+  color: white;
 }
 
 .user {
-  margin: 5px 80px;
+  margin: 5px 22px;
+  margin-left: 250px;
   padding: 5px 10px;
-  border-radius: 3px;
   background-color: rgb(66, 102, 200);
   color: white;
+  border-radius: 5px;
 }
 
 .other {
-  margin: 5px 80px;
+  margin: 5px 250px;
+  margin-left: -10px;
   padding: 5px 10px;
-  border-radius: 3px;
   background-color: rgb(60, 60, 60);
   color: white;
+  border-radius: 5px;
 }

@@ -39,55 +39,70 @@ const ClientChat = () => {
   };
 
   return (
-    <div>
-      <div className="instructions">
+    <div className="instructions">
+      <div className="instructions-container">
         <h1>Chat Room</h1>
-        <span>
-          <h2>1. Respect Others:</h2>
-          <p>
-            Treat everyone with kindness and respect, refraining from offensive
-            language or personal attacks.
-          </p>
+        <div className="divider-section">
+          <div className="left-side">
+            <div className="instruction-field">
+              <h2>1. Respect Others:</h2>
+              <p>
+                Treat everyone with kindness and respect, refraining from offensive
+                language or personal attacks.
+              </p>
+            </div>
+            <div className="instruction-field">
+              <h2>2. Privacy Matters:</h2>
+              <p>
+                Safeguard personal information and avoid sharing details without
+                consent.
+              </p>
+            </div>
+            <div className="instruction-field">
+              <h2>3. No Discrimination:</h2>
+              <p>
+                Foster an inclusive environment by avoiding discriminatory language
+                or behavior.
+              </p>
+            </div>
+            <div className="instruction-field">
+              <h2>4. Mindful Posting:</h2>
+              <p>
+                Think before posting, avoiding spam, excessive use of capital
+                letters, or disruptive behavior.
+              </p>
+            </div>
+          </div>
 
-          <h2>2. Privacy Matters:</h2>
-          <p>
-            Safeguard personal information and avoid sharing details without
-            consent.
-          </p>
+          <div className="right-side">
+            <div className="chat-side">
+              <form className="chat-form" onSubmit={sendMessage}>
+                <input
+                  type="text"
+                  placeholder="Your message"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                />
+                <button type="submit">Send</button>
+              </form>
+              <ul className="chat-list">
+                {messages.map((message, index) => (
+                  <li
+                    key={index}
+                    className={`message ${message.isUser ? "user" : "other"}`}
+                  >
+                    {message.content}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
 
-          <h2>3. No Discrimination:</h2>
-          <p>
-            Foster an inclusive environment by avoiding discriminatory language
-            or behavior.
-          </p>
 
-          <h2>4. Mindful Posting:</h2>
-          <p>
-            Think before posting, avoiding spam, excessive use of capital
-            letters, or disruptive behavior.
-          </p>
-        </span>
+
       </div>
-      <form className="chat-form" onSubmit={sendMessage}>
-        <input
-          type="text"
-          placeholder="Your message"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        <button type="submit">Send</button>
-      </form>
-      <ul className="chat-list">
-        {messages.map((message, index) => (
-          <li
-            key={index}
-            className={`message ${message.isUser ? "user" : "other"}`}
-          >
-            {message.content}
-          </li>
-        ))}
-      </ul>
-    </div>
+    </div >
   );
 };
 
