@@ -1,22 +1,22 @@
-//states
-const path = require("path")
-const { Server } = require("socket.io")
+app.js
 
 const express = require("express")
+const app = express()
 const mongoose = require("mongoose")
 const jwt = require("jsonwebtoken")
 const multer = require("multer")
+const path = require("path")
 const cors = require("cors")
-
-const app = express()
 const PORT = 4000
-
 //to parse response body to json
 app.use(express.json())
 //connect with react
 app.use(cors())
 
-require("./utils/conection")
+// connect to mongoDB
+mongoose.connect(
+  "mongodb+srv://shavinda:shavinda@cluster0.chyp2hq.mongodb.net/pusl3120-74"
+)
 
 app.get("/", (req, res) => {
   res.send("hello there")
@@ -43,8 +43,7 @@ app.post("/upload", upload.single("product"), (req, res) => {
   })
 })
 
-// create a product schema
-const { Product } = require("./models/Products")
+const Product = require("./models/Products")
 
 app.post("/addproduct", async (req, res) => {
   let products = await Product.find({})
@@ -56,7 +55,7 @@ app.post("/addproduct", async (req, res) => {
     id = 1
   }
 
-  const { name, image, category, new_price, old_price, description } = req.body
+  const { name, image, category, new_price, old_price } = req.body
   const product = new Product({
     id: id,
     name: name,
@@ -64,7 +63,6 @@ app.post("/addproduct", async (req, res) => {
     category: category,
     new_price: new_price,
     old_price: old_price,
-    description: description,
   })
   console.log(product)
   await product.save()
@@ -85,9 +83,8 @@ app.get("/allproducts", async (req, res) => {
   res.send(products)
 })
 
-//user schema
-
-const { Users } = require("./models/User")
+//importing user schema
+const Users = require("./models/User")
 
 //create user
 app.post("/signup", async (req, res) => {
@@ -141,20 +138,19 @@ app.post("/login", async (req, res) => {
 
 //new items
 
-app.get("/newproducts", async (req, res) => {
+app.get("/newcollections", async (req, res) => {
   let products = await Product.find({})
   //get the most recent 8 products
-  let new_products = products.slice(1).slice(-8)
+  let new_items = products.slice(1).slice(-8)
   console.log("new items fetched")
-  res.status(200).send(new_products)
+  res.status(200).send(new_items)
 })
 
-app.get("/bestselling", async (req, res) => {
-  // getting the most recent listed printes
-  let products = await Product.find({ category: "3dprinters" })
-  let best_printers = products.slice(0, 4)
-  console.log("popular printers fetched")
-  res.status(200).send(best_printers)
+app.get("/popularinwomen", async (req, res) => {
+  let products = await Product.find({ category: "women" })
+  let popular_woman = products.slice(0, 4)
+  console.log("popular fetched")
+  res.status(200).send(popular_woman)
 })
 
 //add to cart
@@ -214,31 +210,10 @@ app.post("/getcart", fetchUser, async (req, res) => {
 })
 
 // server api
-const expressServer = app.listen(PORT, (e) => {
+app.listen(PORT, (e) => {
   if (!e) {
     console.log("surver running on port 4000")
   } else {
     console.log(e)
   }
 })
-
-const io = new Server(expressServer, {
-  cors: {
-    //connect to react frontend
-    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
-  },
-})
-
-io.on("connection", (socket) => {
-  console.log(`User ${socket.id} connected`)
-
-  socket.on("message", (data) => {
-    console.log(data)
-
-    // send the message to all clients except the sender
-    socket.broadcast.emit("message", `Others : ${data}`)
-    // ${socket.id.substring(0, 5)} id if want
-  })
-})
-
-module.exports = { app, Product }
