@@ -1,8 +1,13 @@
 import React from 'react'
 import './CSS/Checkout.css'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react';
+import { ShopContext } from '../Context/ShopContext';
 
 const Checkout = () => {
+
+    const { cartItems } = useContext(ShopContext);
+
     return (
         <div className='checkout'>
             <div className="checkout-container">
@@ -32,19 +37,9 @@ const Checkout = () => {
                     <input type="text" name="u.name" placeholder='ex: Central' required />
                 </div>
                 <div className="checkout-field">
-                    <p>Country</p>
-                    <select name="country" className='country-select' required >
-                        <option value="srilanka">Sri Lanka</option>
-                        <option value="usa">USA</option>
-                        <option value="australia">Australia</option>
-                    </select>
-                </div>
-                <div className="checkout-field">
                     <p>Payment Method</p>
                     <select name="payment" className='payment-method' required >
-                        <option value="visa">VISA</option>
-                        <option value="master">MASTER</option>
-                        <option value="paypal">PAYPAL</option>
+                        <option value="visa">CASH ON DELIVERY</option>
                     </select>
                 </div>
                 <Link to='/'>
