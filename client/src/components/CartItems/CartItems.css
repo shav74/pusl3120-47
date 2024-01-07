@@ -1,5 +1,4 @@
 .cartitems {
-    margin-top: 2px;
     width: 100%;
 }
 
@@ -13,7 +12,7 @@
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
     align-items: center;
-    padding: 30px 0px 30px 30px;
+    padding: 30px 0px 30px 50px;
     color: #ffffff;
     font-size: 17px;
     font-weight: 800;
@@ -23,7 +22,7 @@
 .cartitems-format {
     font-size: 17px;
     font-weight: 500;
-    background: rgba(0, 0, 0, 0.388);
+    background: rgba(0, 0, 0, 0.781);
 }
 
 .carticon-product-icon {
@@ -31,87 +30,57 @@
 }
 
 .cartitems-remove-icon {
-    height: 35px;
-    margin: 0px 40px;
+    height: 45px;
+    margin-top: -15px;
     cursor: pointer;
 }
 
 .cartitems-quantity {
-    width: 64px;
+    width: 54px;
     height: 50px;
-    border: 2px solid #ebebeb;
-    background: white;
+    background: transparent;
+    color: white;
+    border-radius: 0px;
+    border: 1px solid white;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .cartitems-down {
-    display: flex;
-    max-width: 100px 0px;
-    margin-top: 50px;
+    width: 100%;
+    text-align: center;
 }
 
 .cartitems-total {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    margin-right: 200px;
+    padding: 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     gap: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    background: rgba(214, 214, 214, 0.61);
+
 }
 
 .cartitems-total-item {
     display: flex;
     justify-content: space-between;
-    padding: 15px 0px;
+    padding: 18px 0px;
 }
 
 .cartitems-total button {
-    width: 236px;
+    width: 100%;
     height: 58px;
     outline: none;
     border: none;
-    background: #ff5a5a;
+    background: #000000;
     color: #fff;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     margin-top: -20px;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
-.cartitems-promocode {
-    flex: 1;
-    margin-top: 5px;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.cartitems-promocode p {
-    color: #555;
-}
-
-.cartitems-promobox {
-    width: 504px;
-    margin-top: 15px;
-    padding-left: 20px;
-    height: 58px;
-    background: #eaeaea;
-}
-
-.cartitems-promobox input {
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 15px;
-    width: 330px;
-    height: 50px;
-}
-
-.cartitems-promobox button {
-    width: 170px;
-    height: 58px;
-    font-size: 16px;
-    background: black;
-    color: white;
-    cursor: pointer;
-    border: none;
-    outline: none;
-}

@@ -11,6 +11,7 @@ import d_model_banner from './components/Assets/drag-banner.png'
 import printers_banner from './components/Assets/printers-banner.png'
 import parts_banner from './components/Assets/parts-banner.png'
 import ClientChat from "./pages/ClientChat";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/3dprinters" element={<ShopCategory banner={printers_banner} category="3dprinters" />} />
           <Route path="/printerparts" element={<ShopCategory banner={parts_banner} category="printerparts" />} />
           <Route path="/clientchat" element={<ClientChat />} />
+          <Route path="/checkout" element={<Checkout />} />
 
           <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<Product />} />
