@@ -1,25 +1,26 @@
 const mongoose = require("mongoose")
 
 const OrderSchema = new mongoose.Schema({
-  name: {
-    type: String,
+  userid: {
+    type: Number,
   },
-  email: {
-    type: String,
-    unique: true,
+  itemid: {
+    type: Number,
   },
-  password: {
-    type: String,
-  },
-  cartData: {
-    type: Object,
+  quantity: {
+    type: Number,
+    min: 0,
   },
   date: {
     type: Date,
     default: Date.now,
   },
+  status: {
+    type: String,
+    default: "pending",
+  },
 })
 
-const Users = mongoose.model("Order", UserSchema)
+const Orders = mongoose.model("Order", OrderSchema)
 
-module.exports = { Users }
+module.exports = { Orders }

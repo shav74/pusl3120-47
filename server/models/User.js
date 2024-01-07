@@ -1,15 +1,18 @@
 const mongoose = require("mongoose")
 
 const UserSchema = new mongoose.Schema({
-  userid: {
+  name: {
     type: String,
   },
-  productid: {
-    type: Array,
+  email: {
+    type: String,
     unique: true,
   },
-  total: {
+  password: {
     type: String,
+  },
+  cartData: {
+    type: Object,
   },
   date: {
     type: Date,
@@ -17,6 +20,6 @@ const UserSchema = new mongoose.Schema({
   },
 })
 
-const Orders = mongoose.model("User", UserSchema)
+const Users = mongoose.model("User", UserSchema)
 
-module.exports = { Orders }
+module.exports = { Users }
