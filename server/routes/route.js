@@ -107,4 +107,10 @@ router.get("/userorders", fetchUser, async (req, res) => {
   res.status(200).send(user_orders)
 })
 
+router.get("/userinfo", fetchUser, async (req, res) => {
+  const userData = await Users.findOne({ _id: req.body.id })
+  const useremail = userData.email
+  res.status(200).send(useremail)
+})
+
 module.exports = router

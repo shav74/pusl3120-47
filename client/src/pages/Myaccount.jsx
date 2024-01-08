@@ -1,5 +1,5 @@
-import React from 'react'
-import './CSS/Myaccount.css'
+import React from "react";
+import "./CSS/Myaccount.css";
 
 const Myaccount = () => {
   return (
@@ -12,4 +12,4 @@ const Myaccount = () => {
   )
 }
 
-export default Myaccount
+export default Myaccount;
