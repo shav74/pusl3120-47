@@ -66,6 +66,25 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  const changepass = (oldpassword, newpassword) => {
+    if (localStorage.getItem("auth-token")) {
+      fetch("http://localhost:4000/changepass", {
+        method: "POST",
+        headers: {
+          Accept: "application/form-data",
+          "auth-token": `${localStorage.getItem("auth-token")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          oldpassword: oldpassword,
+          newpassword: newpassword,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    }
+  };
+
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
@@ -130,6 +149,7 @@ const ShopContextProvider = (props) => {
     getTotalCartAmount,
     getTotalCartItems,
     addItems,
+    changepass,
   };
   return (
     <ShopContext.Provider value={contextValue}>

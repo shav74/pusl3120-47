@@ -113,4 +113,6 @@ router.get("/userinfo", fetchUser, async (req, res) => {
   res.status(200).send(useremail)
 })
 
+router.post("/changepass", fetchUser, async (req, res) => {})
+
 module.exports = router
