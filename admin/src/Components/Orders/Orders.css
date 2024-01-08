@@ -1,6 +1,23 @@
-.orders{
-    box-sizing: border-box;
-    width: 300%;
-    margin: 0px 20px 0px 20px;
-    height: 140vh;
+.orders {
+    width: 90rem;
+    margin: 20px 0px 0px 25px;
+    margin-right: -200px;
 }
+
+.orders-format-main {
+    display: grid;
+    grid-template-columns: 0.2fr 0.3fr 0.5fr 0.2fr 0.2fr 0.5fr 0.4fr;
+    width: 97%;
+    color: #000000;
+    font-size: 14px;
+}
+
+.orders-product-icon {
+    height: 50px;
+}
+
+
+.orders-allproducts {
+    overflow-y: auto;
+}
+

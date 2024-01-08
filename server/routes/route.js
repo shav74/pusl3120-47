@@ -89,7 +89,7 @@ router.post("/addorder", fetchUser, async (req, res) => {
   res.status(200).send({ success: true })
 })
 
-router.post("getorders", async (req, res) => {
+router.post("/getorders", async (req, res) => {
   let orders = await Orders.find({})
   console.log("all orders fetched")
   res.status(200).send(orders)
