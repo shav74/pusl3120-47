@@ -3,7 +3,6 @@ import "./Navbar.css";
 import logo from "../Assets/axis-logo.png";
 import cart_icon from "../Assets/cart-logo.png";
 import person_icon from "../Assets/person-icon.png";
-import person_cut_icon from "../Assets/person-cut-icon.png";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 
@@ -17,7 +16,6 @@ const Navbar = () => {
         <Link to="/"><img src={logo} alt="" /></Link>
       </div>
       <ul className="nav-menu">
-        {/* <li onClick={() => { setMenu("home") }}><Link style={{ textDecoration: 'none', color: menu === "home" ? 'white' : "black" }} to="/">HOME</Link></li> */}
         <li onClick={() => { setMenu("3dmodels") }}><Link style={{ textDecoration: 'none', color: menu === "3dmodels" ? 'white' : "black" }} to="/3dmodels">3D MODELS</Link></li>
         <li onClick={() => { setMenu("3dprinters") }}><Link style={{ textDecoration: 'none', color: menu === "3dprinters" ? 'white' : "black" }} to="/3dprinters">3D PRINTERS</Link></li>
         <li onClick={() => { setMenu("printerparts") }}><Link style={{ textDecoration: 'none', color: menu === "printerparts" ? 'white' : "black" }} to="/printerparts">PRINTER PARTS</Link></li>

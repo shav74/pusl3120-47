@@ -18,6 +18,7 @@
 .myaccount-container img{
     margin-left: 62rem;
     margin-bottom: -10px;
+    cursor: pointer;
 }
 
 .myaccount-container h1 {

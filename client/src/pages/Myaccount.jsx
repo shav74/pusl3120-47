@@ -3,7 +3,6 @@ import "./CSS/Myaccount.css";
 import { ShopContext } from "../Context/ShopContext";
 import { useState } from "react";
 import { useContext } from "react";
-import person_icon from "../components/Assets/person-icon.png";
 import person_cut_icon from "../components/Assets/person-cut-icon.png";
 import { Link } from "react-router-dom";
 

@@ -23,15 +23,6 @@
     font-weight: 600;
 }
 
-.productdisplay-right-star {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    gap: 5px;
-    color: #000000;
-    font-size: 16px;
-}
-
 .productdisplay-right-prices {
     display: flex;
     margin: 25px 0px;

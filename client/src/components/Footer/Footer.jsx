@@ -24,17 +24,21 @@ const Footer = () => {
           <Link to='/printerparts' style={{ textDecoration: 'none', color: 'white' }}><li>Printer Parts</li></Link>
           <Link to='/aboutus' style={{ textDecoration: 'none', color: 'white' }}><li>About US</li></Link>
           <Link to='/contactus' style={{ textDecoration: 'none', color: 'white' }}><li>Contact US</li></Link>
-          <Link to='/login' style={{ textDecoration: 'none', color: 'white' }}><li>Sign Up</li></Link>
+
+          {localStorage.getItem('auth-token') ?
+            <Link onClick={() => { localStorage.removeItem('auth-token'); window.location.replace('/') }} style={{ textDecoration: 'none', color: 'white' }}><li>Sign Out</li></Link>
+            : <Link to='/login' style={{ textDecoration: 'none', color: 'white' }}><li>Sign In</li></Link>
+          }
         </ul>
         <div className="footer-social-icon">
           <div className="footer-icons-container">
-            <a href="https://www.instagram.com/">
-              <img src={inst_icon} alt="" />
+            <a href="https://github.com/shav74/pusl3120-47">
+              <img src={git_icon} alt="" />
             </a>
           </div>
           <div className="footer-icons-container">
-            <a href="https://github.com/shav74/pusl3120-47">
-              <img src={git_icon} alt="" />
+            <a href="https://www.instagram.com/">
+              <img src={inst_icon} alt="" />
             </a>
           </div>
           <div className="footer-icons-container">

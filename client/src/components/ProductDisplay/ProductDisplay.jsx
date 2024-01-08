@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import './ProductDisplay.css'
-import star_icon from '../Assets/star_icon.png'
-import star_dull_icon from '../Assets/star_dull_icon.png'
+
 import { ShopContext } from '../../Context/ShopContext'
 
 const ProductDisplay = (props) => {
@@ -16,14 +15,7 @@ const ProductDisplay = (props) => {
                     <span>Category: </span>
                     {product.category}
                 </p>
-                <div className="productdisplay-right-star">
-                    <img src={star_icon} />
-                    <img src={star_icon} />
-                    <img src={star_icon} />
-                    <img src={star_icon} />
-                    <img src={star_dull_icon} />
-                    <p>(155)</p>
-                </div>
+
                 <div className="productdisplay-right-prices">
                     <div className="productdisplay-right-price-old">
                         Was: {product.old_price} LKR
