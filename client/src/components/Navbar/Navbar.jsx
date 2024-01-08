@@ -27,12 +27,13 @@ const Navbar = () => {
       </ul>
       <div className="nav-login-cart">
         {localStorage.getItem('auth-token') ?
-          <ul><li onClick={() => { setMenu("myaccount") }}><Link style={{ textDecoration: 'none', color:'white' }} to="/myaccount">MY ACCOUNT</Link></li></ul>
+          <ul><li onClick={() => { setMenu("myaccount") }}><Link style={{ textDecoration: 'none', color: 'white' }} to="/myaccount">MY ACCOUNT</Link></li></ul>
           : <></>
         }
         {localStorage.getItem('auth-token') ?
-          <img src={person_cut_icon} onClick={() => { localStorage.removeItem('auth-token'); window.location.replace('/') }}></img>
+          <></>
           : <Link to="/login"><img className="cuticon" src={person_icon} alt="" /></Link>}
+
         <Link to="/cart"><img src={cart_icon} alt="" /></Link>
         <div className="nav-cart-count">{getTotalCartItems()}</div>
       </div>
