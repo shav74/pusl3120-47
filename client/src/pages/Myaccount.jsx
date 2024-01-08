@@ -1,12 +1,8 @@
-import React from 'react'
-import './CSS/Myaccount.css'
+import React from "react";
+import "./CSS/Myaccount.css";
 
 const Myaccount = () => {
-  return (
-    <div className='myaccount'>
-      rferfrferg
-    </div>
-  )
-}
+  return <div className="myaccount"></div>;
+};
 
-export default Myaccount
+export default Myaccount;
