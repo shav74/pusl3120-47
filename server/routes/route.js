@@ -17,6 +17,7 @@ const {
 } = require("../controllers/controller")
 const { Orders } = require("../models/Orders")
 const { Users } = require("../models/User")
+const { Product } = require("../models/Products")
 
 //product management routes
 router.get("/", sayhello)
@@ -74,6 +75,8 @@ router.post("/addorder", fetchUser, async (req, res) => {
     { cartData: userData.cartData }
   )
 
+  const itemdetails = await Product.findOne({ id: req.body.itemId })
+
   const order = new Orders({
     userid: userid,
     itemid: itemid,
@@ -84,18 +87,20 @@ router.post("/addorder", fetchUser, async (req, res) => {
     address2: address2,
     province: province,
     postcode: postcode,
+    itemname: itemdetails.name,
   })
   await order.save()
   res.status(200).send({ success: true })
 })
 
-router.post("/getorders", async (req, res) => {
+router.get("/getorders", async (req, res) => {
   let orders = await Orders.find({})
+  // let itemnames = await Product.find({ id: orders.id })
   console.log("all orders fetched")
   res.status(200).send(orders)
 })
 
-router.post("/userorders", fetchUser, async (req, res) => {
+router.get("/userorders", fetchUser, async (req, res) => {
   let userData = await Users.findOne({ _id: req.user.id })
   let user_orders = await Orders.find({ userid: req.user.id })
 

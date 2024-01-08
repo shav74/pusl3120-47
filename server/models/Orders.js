@@ -37,6 +37,9 @@ const OrderSchema = new mongoose.Schema({
   province: {
     type: String,
   },
+  itemname: {
+    type: String,
+  },
 })
 
 const Orders = mongoose.model("Order", OrderSchema)
