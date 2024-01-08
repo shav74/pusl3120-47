@@ -66,7 +66,7 @@ const ShopContextProvider = (props) => {
     }
   };
 
-  const changepass = (oldpassword, newpassword) => {
+  const changepass = (oldpassword, newpassword, email) => {
     if (localStorage.getItem("auth-token")) {
       fetch("http://localhost:4000/changepass", {
         method: "POST",
@@ -78,6 +78,7 @@ const ShopContextProvider = (props) => {
         body: JSON.stringify({
           oldpassword: oldpassword,
           newpassword: newpassword,
+          email: email,
         }),
       })
         .then((response) => response.json())

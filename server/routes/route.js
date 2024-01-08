@@ -113,6 +113,25 @@ router.get("/userinfo", fetchUser, async (req, res) => {
   res.status(200).send(useremail)
 })
 
-router.post("/changepass", fetchUser, async (req, res) => {})
+router.post("/changepass", fetchUser, async (req, res) => {
+  console.log("change pass called")
+  let user = await Users.findOne({ email: req.body.email })
+  if (user) {
+    const conf_pass = req.body.oldpassword === user.password
+    if (conf_pass) {
+      //change password
+      await Users.findOneAndUpdate(
+        { email: req.body.email },
+        { password: req.body.newpassword }
+      )
+      res.status(200).send({ success: true })
+    } else {
+      res.status(400).send({ success: false, errors: "wrong old password" })
+      console.log("wrong old pass")
+    }
+  } else {
+    res.status(200).send({ success: false, errors: "user not found" })
+  }
+})
 
 module.exports = router
