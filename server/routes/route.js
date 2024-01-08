@@ -95,4 +95,11 @@ router.post("/getorders", async (req, res) => {
   res.status(200).send(orders)
 })
 
+router.post("/userorders", fetchUser, async (req, res) => {
+  let userData = await Users.findOne({ _id: req.user.id })
+  let user_orders = await Orders.find({ userid: req.user.id })
+
+  res.status(200).send(user_orders)
+})
+
 module.exports = router
